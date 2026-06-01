@@ -35,7 +35,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.ChatGPT_Image_Jun_1__2026__08_16_55_AM;
+            this.pictureBox1.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.ChatGPT_Image_Jun_1__2026__08_16_55_AM1;
             this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1774, 881);
