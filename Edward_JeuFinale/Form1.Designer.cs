@@ -35,10 +35,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.ChatGPT_Image_Jun_1__2026__08_16_55_AM1;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
+            this.pictureBox1.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.cavebackgroundlevel1;
+            this.pictureBox1.Location = new System.Drawing.Point(-1, -1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1774, 881);
+            this.pictureBox1.Size = new System.Drawing.Size(6400, 2500);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -46,7 +46,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1772, 880);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";

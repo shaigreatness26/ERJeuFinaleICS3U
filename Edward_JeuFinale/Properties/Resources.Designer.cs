@@ -73,6 +73,16 @@ namespace Edward_JeuFinale.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cavebackgroundlevel1 {
+            get {
+                object obj = ResourceManager.GetObject("cavebackgroundlevel1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ChatGPT_Image_Jun_1__2026__08_16_55_AM {
             get {
                 object obj = ResourceManager.GetObject("ChatGPT Image Jun 1, 2026, 08_16_55 AM", resourceCulture);
