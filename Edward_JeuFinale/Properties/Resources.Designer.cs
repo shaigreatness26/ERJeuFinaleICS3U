@@ -143,6 +143,16 @@ namespace Edward_JeuFinale.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap small_basketball {
+            get {
+                object obj = ResourceManager.GetObject("small_basketball", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap small_cavebackgroundlevel1 {
             get {
                 object obj = ResourceManager.GetObject("small_cavebackgroundlevel1", resourceCulture);
