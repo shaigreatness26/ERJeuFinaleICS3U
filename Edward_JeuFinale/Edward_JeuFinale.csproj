@@ -92,5 +92,20 @@
   <ItemGroup>
     <None Include="Resources\cavebackgroundlevel1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\small_cavebackgroundlevel1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basketballhoop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Jalenbrunsonsprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\small_Jalenbrunsonsprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basketballico.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

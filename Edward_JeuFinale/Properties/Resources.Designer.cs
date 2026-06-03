@@ -63,9 +63,39 @@ namespace Edward_JeuFinale.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap basketballhoop {
+            get {
+                object obj = ResourceManager.GetObject("basketballhoop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap basketballhoop1 {
+            get {
+                object obj = ResourceManager.GetObject("basketballhoop1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap basketballico {
             get {
                 object obj = ResourceManager.GetObject("basketballico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap basketballico1 {
+            get {
+                object obj = ResourceManager.GetObject("basketballico1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +126,36 @@ namespace Edward_JeuFinale.Properties {
         internal static System.Drawing.Bitmap ChatGPT_Image_Jun_1__2026__08_16_55_AM1 {
             get {
                 object obj = ResourceManager.GetObject("ChatGPT Image Jun 1, 2026, 08_16_55 AM1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Jalenbrunsonsprite {
+            get {
+                object obj = ResourceManager.GetObject("Jalenbrunsonsprite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap small_cavebackgroundlevel1 {
+            get {
+                object obj = ResourceManager.GetObject("small_cavebackgroundlevel1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap small_Jalenbrunsonsprite {
+            get {
+                object obj = ResourceManager.GetObject("small_Jalenbrunsonsprite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
