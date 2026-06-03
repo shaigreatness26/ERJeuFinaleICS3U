@@ -16,5 +16,23 @@ namespace Edward_JeuFinale
         {
             InitializeComponent();
         }
+
+        bool goLeft, goRight, jumping, hasKey;
+        int jumpSpeed = 10;
+        int force = 8;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        int playerSpeed = 10;
+        int backgroundSpeed = 8;
+
+
+        private void background_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

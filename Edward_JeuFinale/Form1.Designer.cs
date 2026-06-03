@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.background = new System.Windows.Forms.PictureBox();
+            this.gameTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -89,6 +91,12 @@
             this.background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.background.TabIndex = 0;
             this.background.TabStop = false;
+            this.background.Click += new System.EventHandler(this.background_Click);
+            // 
+            // gameTimer
+            // 
+            this.gameTimer.Interval = 20;
+            this.gameTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -120,6 +128,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Timer gameTimer;
     }
 }
 
