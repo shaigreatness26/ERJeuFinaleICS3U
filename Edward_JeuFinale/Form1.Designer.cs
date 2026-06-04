@@ -30,38 +30,39 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.ball = new System.Windows.Forms.PictureBox();
+            this.Player = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.background = new System.Windows.Forms.PictureBox();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox4
+            // ball
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(92)))));
-            this.pictureBox4.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.small_basketball;
-            this.pictureBox4.Location = new System.Drawing.Point(303, 441);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox4.TabIndex = 4;
-            this.pictureBox4.TabStop = false;
+            this.ball.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(92)))));
+            this.ball.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.small_basketball;
+            this.ball.Location = new System.Drawing.Point(303, 441);
+            this.ball.Name = "ball";
+            this.ball.Size = new System.Drawing.Size(32, 32);
+            this.ball.TabIndex = 4;
+            this.ball.TabStop = false;
+            this.ball.Tag = "ball";
             // 
-            // pictureBox3
+            // Player
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(92)))));
-            this.pictureBox3.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.small_Jalenbrunsonsprite;
-            this.pictureBox3.Location = new System.Drawing.Point(237, 399);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(60, 74);
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
+            this.Player.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(92)))));
+            this.Player.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.small_Jalenbrunsonsprite;
+            this.Player.Location = new System.Drawing.Point(237, 399);
+            this.Player.Name = "Player";
+            this.Player.Size = new System.Drawing.Size(60, 74);
+            this.Player.TabIndex = 3;
+            this.Player.TabStop = false;
             // 
             // pictureBox2
             // 
@@ -70,6 +71,7 @@
             this.pictureBox2.Size = new System.Drawing.Size(359, 58);
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Tag = "platform";
             // 
             // pictureBox1
             // 
@@ -81,6 +83,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Tag = "hoop";
             // 
             // background
             // 
@@ -95,6 +98,7 @@
             // 
             // gameTimer
             // 
+            this.gameTimer.Enabled = true;
             this.gameTimer.Interval = 20;
             this.gameTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
@@ -103,16 +107,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.ball);
+            this.Controls.Add(this.Player);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.background);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Jeu Basket";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.ball)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
@@ -126,8 +133,8 @@
         private System.Windows.Forms.PictureBox background;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox Player;
+        private System.Windows.Forms.PictureBox ball;
         private System.Windows.Forms.Timer gameTimer;
     }
 }
