@@ -205,7 +205,7 @@ namespace Edward_JeuFinale
             {
                 goRight = false;
                 goLeft = false;
-                
+
                 // GPT
                 int holdMs = (int)(DateTime.UtcNow - shotStartTime).TotalMilliseconds;
                 holdMs = Math.Max(0, Math.Min(MaxShotWindow, holdMs));
@@ -218,7 +218,7 @@ namespace Edward_JeuFinale
                 shotMeterFill.BackColor = (holdMs >= GreenWindowStart && holdMs <= GreenWindowEnd) ? Color.LimeGreen : Color.Gold;
                 shotMeterBack.Left = Player.Left + (Player.Width / 2) - (shotMeterBack.Width / 2);
                 shotMeterBack.Top = Player.Top - 22;
-               
+
             }
 
             if (shotInFlight)
@@ -252,27 +252,50 @@ namespace Edward_JeuFinale
             foreach (Control x in this.Controls)
             {
 
-                if (x is PictureBox && (string)x.Tag == "platform")
+                if (x is PictureBox && (string)x.Tag == "wall")
                 {
-                    
 
 
-                        if (Player.Bounds.IntersectsWith(x.Bounds) && jumping == false)
-                        {
-                            force = 8;
-                            Player.Top = x.Top - Player.Height;
-                            jumpSpeed = 0;
-                        }
 
-                        x.BringToFront();
+                    if (Player.Bounds.IntersectsWith(x.Bounds) && jumping == false)
+                    {
+                        force += 67;
 
+                        jumpSpeed += 67;
                     }
 
+                    x.BringToFront();
+
                 }
+
+            }
+
+
+
             foreach (Control x in this.Controls)
             {
 
                 if (x is PictureBox && (string)x.Tag == "platform")
+                {
+
+
+
+                    if (Player.Bounds.IntersectsWith(x.Bounds) && jumping == false)
+                    {
+                        force = 8;
+                        Player.Top = x.Top - Player.Height;
+                        jumpSpeed = 0;
+                    }
+
+                    x.BringToFront();
+
+                }
+
+            }
+            foreach (Control x in this.Controls)
+            {
+
+                if (x is PictureBox && (string)x.Tag == "platform" || (string)x.Tag == "wall")
                 {
 
 
@@ -291,6 +314,8 @@ namespace Edward_JeuFinale
             }
 
         }
+
+
         
 
 
