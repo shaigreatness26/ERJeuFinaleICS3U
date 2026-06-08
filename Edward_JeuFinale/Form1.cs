@@ -110,7 +110,7 @@ namespace Edward_JeuFinale
 
             if (perfectRelease)
             {
-                SoundPlayer green48kHz = new SoundPlayer("green48kHz.wav");
+                // SoundPlayer green48kHz = new SoundPlayer("green48kHz.wav");
                 groupBox1.Visible = true;
                 retroactionTir.Text = "PARFAIT";
                 retroactionTir.ForeColor = Color.Green;
@@ -118,7 +118,7 @@ namespace Edward_JeuFinale
                 feedbackTimer.Start();
 
                 
-                green48kHz.Play();
+               // green48kHz.Play();
 
                 // Tir au moment ideal
                 ballVelocityX = (int)Math.Round(idealVx);

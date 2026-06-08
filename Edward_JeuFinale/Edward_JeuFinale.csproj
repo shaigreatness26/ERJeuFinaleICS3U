@@ -110,5 +110,10 @@
   <ItemGroup>
     <None Include="Resources\small_basketball.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\green48kHz.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
