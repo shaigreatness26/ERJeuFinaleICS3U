@@ -107,7 +107,7 @@ namespace Edward_JeuFinale
             float idealVx = (targetX - startX) / flightFrames;
             float idealVy = ((targetY - startY) - (0.5f * Gravity * flightFrames * flightFrames)) / flightFrames;
 
-
+            SoundPlayer greenAudio = new SoundPlayer(@"Resources\green48kHz.wav");
             if (perfectRelease)
             {
                 // SoundPlayer green48kHz = new SoundPlayer("green48kHz.wav");
@@ -117,8 +117,9 @@ namespace Edward_JeuFinale
                 feedbackTimer.Stop();
                 feedbackTimer.Start();
 
-                
-               // green48kHz.Play();
+
+                // green48kHz.Play();
+                greenAudio.Play();
 
                 // Tir au moment ideal
                 ballVelocityX = (int)Math.Round(idealVx);
@@ -167,7 +168,7 @@ namespace Edward_JeuFinale
             
         }
 
-
+      
         private void timer1_Tick(object sender, EventArgs e)
         {
             Player.Top += jumpSpeed;
@@ -312,6 +313,9 @@ namespace Edward_JeuFinale
                 }
 
             }
+
+
+
 
         }
 
