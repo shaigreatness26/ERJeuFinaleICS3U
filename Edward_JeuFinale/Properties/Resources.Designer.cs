@@ -61,6 +61,15 @@ namespace Edward_JeuFinale.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream ballhit {
+            get {
+                return ResourceManager.GetStream("ballhit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap basketballhoop {
@@ -116,6 +125,15 @@ namespace Edward_JeuFinale.Properties {
             get {
                 object obj = ResourceManager.GetObject("ChatGPT Image Jun 1, 2026, 08_16_55 AM1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream dribble {
+            get {
+                return ResourceManager.GetStream("dribble", resourceCulture);
             }
         }
         

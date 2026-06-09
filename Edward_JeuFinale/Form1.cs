@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -27,10 +28,12 @@ namespace Edward_JeuFinale
         private bool goRight;
         private bool jumping;
         private bool hasKey;
+        private bool dribbling;
+        private bool dribblePlaying;
         private bool chargingShot;
         private bool shotInFlight;
         private bool hasBall;
-
+        
         private int jumpSpeed = 10;
         private int playerSpeed = 10;
         private int force = 8;
@@ -48,15 +51,22 @@ namespace Edward_JeuFinale
 
         private readonly Panel shotMeterBack = new Panel();
         private readonly Panel shotMeterFill = new Panel(); // Du GPT
-     
+
+        private readonly SoundPlayer dribble = new SoundPlayer(Properties.Resources.dribble);
+
+
         public Form1()
         {
             InitializeComponent();
             DoubleBuffered = true;
             KeyPreview = true;
             InitializeShotMeter();
+            dribbleTimer.Start();
+            
 
         }
+
+
 
         private void AttachBallToPlayer()
         {
@@ -71,13 +81,13 @@ namespace Edward_JeuFinale
             ball.Top = Player.Top + 18;
 
             ball.BringToFront();
-    
+
         }
 
 
         private void ShootBall()
         {
-            
+
             int holdMs = (int)(DateTime.UtcNow - shotStartTime).TotalMilliseconds;
             holdMs = Math.Max(0, Math.Min(MaxShotWindow, holdMs));
 
@@ -107,10 +117,10 @@ namespace Edward_JeuFinale
             float idealVx = (targetX - startX) / flightFrames;
             float idealVy = ((targetY - startY) - (0.5f * Gravity * flightFrames * flightFrames)) / flightFrames;
 
-            SoundPlayer greenAudio = new SoundPlayer(@"Resources\green48kHz.wav");
+            SoundPlayer greenAudio = new SoundPlayer(Properties.Resources.green48kHz);
             if (perfectRelease)
             {
-                // SoundPlayer green48kHz = new SoundPlayer("green48kHz.wav");
+                
                 groupBox1.Visible = true;
                 retroactionTir.Text = "PARFAIT";
                 retroactionTir.ForeColor = Color.Green;
@@ -118,7 +128,7 @@ namespace Edward_JeuFinale
                 feedbackTimer.Start();
 
 
-                // green48kHz.Play();
+                
                 greenAudio.Play();
 
                 // Tir au moment ideal
@@ -165,21 +175,43 @@ namespace Edward_JeuFinale
             shotMeterBack.Controls.Add(shotMeterFill);
             Controls.Add(shotMeterBack);
             shotMeterBack.BringToFront();
-            
+
+        }
+       
+
+        private void DribblePlayback()
+        {
+
+            if (hasBall)
+            {
+                dribble.Play();
+            }
+            else if (!hasBall)
+            {
+                dribble.Stop();
+            }
         }
 
-      
+
+
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
             Player.Top += jumpSpeed;
             if (goLeft == true)
             {
                 Player.Left -= playerSpeed;
+                
             }
             if (goRight == true)
             {
                 Player.Left += playerSpeed;
+               
             }
+
+            
+            
+
 
             if (jumping == true)
             {
@@ -200,6 +232,8 @@ namespace Edward_JeuFinale
             {
                 ball.Left = Player.Right - (ball.Width / 2) + 4;
                 ball.Top = Player.Top + 18;
+               
+
             }
 
             if (chargingShot)
@@ -380,6 +414,14 @@ namespace Edward_JeuFinale
         {
             groupBox1.Visible = false;
             feedbackTimer.Stop();
+        }
+
+        private void dribbleTimer_Tick(object sender, EventArgs e)
+        {
+            if (hasBall)
+            {
+                DribblePlayback();
+            }
         }
     }
 }

@@ -44,6 +44,7 @@
             this.feedbackTimer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.dribbleTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -189,6 +190,11 @@
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Tag = "platform";
             // 
+            // dribbleTimer
+            // 
+            this.dribbleTimer.Interval = 750;
+            this.dribbleTimer.Tick += new System.EventHandler(this.dribbleTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,6 +247,7 @@
         private System.Windows.Forms.Timer feedbackTimer;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Timer dribbleTimer;
     }
 }
 

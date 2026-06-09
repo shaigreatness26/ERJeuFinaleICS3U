@@ -151,4 +151,10 @@
   <data name="brickeffect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brickeffect.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="ballhit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ballhit.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dribble" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dribble.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
