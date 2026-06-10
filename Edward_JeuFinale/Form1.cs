@@ -66,7 +66,7 @@ namespace Edward_JeuFinale
             KeyPreview = true;
             InitializeShotMeter();
             dribbleTimer.Start();
-
+            InitializeRetroactionTir();
         }
 
 
@@ -91,6 +91,7 @@ namespace Edward_JeuFinale
         {
             retroactionBox.Size = new Size(180, 80);
             retroactionBox.BackColor = Color.FromArgb(72, 72, 72);
+            retroactionBox.Location = new Point(ClientSize.Width / 2, ClientSize.Height -20);
 
             retroactionTirLabel.Text = "Retroaction de Tir";
             retroactionTirLabel.Font = new Font("Impact", 16);
@@ -225,6 +226,7 @@ namespace Edward_JeuFinale
             if (goLeft == true)
             {
                 Player.Left -= playerSpeed;
+
                 
             }
             if (goRight == true)
@@ -364,6 +366,29 @@ namespace Edward_JeuFinale
                         shotInFlight = false;
                         ballVelocityX = 0;
                         ballVelocityY = 0;
+                    }
+
+                    x.BringToFront();
+
+                }
+
+            }
+
+            foreach (Control x in this.Controls)
+            {
+
+                if (x is PictureBox && (string)x.Tag == "lava")
+                {
+
+
+
+                    if (ball.Bounds.IntersectsWith(x.Bounds))
+                    {
+                        ballVelocityX = 0;
+                        ballVelocityY = 0;
+                        shotInFlight = false;
+                        ball.Location = new Point(79, 244);
+
                     }
 
                     x.BringToFront();

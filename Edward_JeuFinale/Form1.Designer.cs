@@ -109,7 +109,7 @@
             // 
             this.hoop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(92)))));
             this.hoop.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.basketballhoop1;
-            this.hoop.Location = new System.Drawing.Point(1706, 418);
+            this.hoop.Location = new System.Drawing.Point(1075, 12);
             this.hoop.Name = "hoop";
             this.hoop.Size = new System.Drawing.Size(137, 154);
             this.hoop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -129,7 +129,7 @@
             // 
             // rimBounds
             // 
-            this.rimBounds.Location = new System.Drawing.Point(1733, 511);
+            this.rimBounds.Location = new System.Drawing.Point(1102, 105);
             this.rimBounds.Name = "rimBounds";
             this.rimBounds.Size = new System.Drawing.Size(61, 20);
             this.rimBounds.TabIndex = 5;
@@ -257,19 +257,19 @@
             // 
             // pictureBox10
             // 
-            this.pictureBox10.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBox10.BackColor = System.Drawing.Color.IndianRed;
             this.pictureBox10.Location = new System.Drawing.Point(800, 146);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(126, 508);
             this.pictureBox10.TabIndex = 17;
             this.pictureBox10.TabStop = false;
-            this.pictureBox10.Tag = "wall";
+            this.pictureBox10.Tag = "lava";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1855, 681);
+            this.ClientSize = new System.Drawing.Size(1516, 681);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
