@@ -42,7 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.feedbackTimer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.spawnPlatform = new System.Windows.Forms.PictureBox();
             this.dribbleTimer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -51,6 +51,7 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -59,7 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rimBounds)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spawnPlatform)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -67,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -129,11 +131,13 @@
             // 
             // rimBounds
             // 
+            this.rimBounds.BackColor = System.Drawing.Color.SandyBrown;
             this.rimBounds.Location = new System.Drawing.Point(1102, 105);
             this.rimBounds.Name = "rimBounds";
             this.rimBounds.Size = new System.Drawing.Size(61, 20);
             this.rimBounds.TabIndex = 5;
             this.rimBounds.TabStop = false;
+            this.rimBounds.Tag = "rimBounds";
             this.rimBounds.Visible = false;
             // 
             // groupBox1
@@ -177,21 +181,21 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox3.Location = new System.Drawing.Point(43, 309);
+            this.pictureBox3.Location = new System.Drawing.Point(43, 298);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(359, 58);
             this.pictureBox3.TabIndex = 9;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Tag = "wall";
             // 
-            // pictureBox4
+            // spawnPlatform
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(43, 282);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(359, 10);
-            this.pictureBox4.TabIndex = 10;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Tag = "platform";
+            this.spawnPlatform.Location = new System.Drawing.Point(43, 282);
+            this.spawnPlatform.Name = "spawnPlatform";
+            this.spawnPlatform.Size = new System.Drawing.Size(359, 10);
+            this.spawnPlatform.TabIndex = 10;
+            this.spawnPlatform.TabStop = false;
+            this.spawnPlatform.Tag = "platform";
             // 
             // dribbleTimer
             // 
@@ -265,11 +269,22 @@
             this.pictureBox10.TabStop = false;
             this.pictureBox10.Tag = "lava";
             // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackColor = System.Drawing.Color.IndianRed;
+            this.pictureBox11.Location = new System.Drawing.Point(320, 28);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(126, 148);
+            this.pictureBox11.TabIndex = 18;
+            this.pictureBox11.TabStop = false;
+            this.pictureBox11.Tag = "lava";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1516, 681);
+            this.ClientSize = new System.Drawing.Size(1493, 681);
+            this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
@@ -277,7 +292,7 @@
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.spawnPlatform);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.rimBounds);
@@ -300,7 +315,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spawnPlatform)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -308,6 +323,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,7 +343,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer feedbackTimer;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox spawnPlatform;
         private System.Windows.Forms.Timer dribbleTimer;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox5;
@@ -336,6 +352,7 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }
 

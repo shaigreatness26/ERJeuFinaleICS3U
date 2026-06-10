@@ -218,6 +218,32 @@ namespace Edward_JeuFinale
         }
 
 
+        private void BougeElementsJeu(string direction)
+        {
+            foreach (Control x in this.Controls)
+            {
+                if (x is PictureBox && (string)x.Tag == "platform" 
+                    || x is PictureBox && (string)x.Tag == "lava" 
+                    || x is PictureBox && (string)x.Tag == "wall" 
+                    || x is PictureBox && (string)x.Tag == "hoop" 
+                    || x is PictureBox && (string)x.Tag == "rimBounds" 
+                    || x is PictureBox && (string)x.Tag == "ball" && !hasBall)
+                {
+
+                    if (direction == "back")
+                    {
+                        x.Left -= backgroundSpeed;
+                    }
+                    if (direction == "forward")
+                    {
+                        x.Left += backgroundSpeed;
+                    }
+
+
+                }
+            }
+        }
+
 
         
         private void timer1_Tick(object sender, EventArgs e)
@@ -226,13 +252,13 @@ namespace Edward_JeuFinale
             if (goLeft == true)
             {
                 Player.Left -= playerSpeed;
+                BougeElementsJeu("forward");
 
-                
             }
             if (goRight == true)
             {
                 Player.Left += playerSpeed;
-               
+                BougeElementsJeu("back");
             }
 
             
@@ -292,6 +318,7 @@ namespace Edward_JeuFinale
                 if (ball.Top > ClientSize.Height || ball.Left > ClientSize.Width || ball.Left + ball.Width < 0)
                 {
                     AttachBallToPlayer();
+                   // ball.Location = spawnPlatform.Location + new Size(36, -35);
                 }
 
                 if (ball.Bounds.IntersectsWith(rimBounds.Bounds))
@@ -387,7 +414,8 @@ namespace Edward_JeuFinale
                         ballVelocityX = 0;
                         ballVelocityY = 0;
                         shotInFlight = false;
-                        ball.Location = new Point(79, 244);
+                        // replace this with something that says go to the next spawn point if there are multiple spawn points rather than hard coding 
+                        ball.Location = spawnPlatform.Location + new Size(36, -35);
 
                     }
 
@@ -435,11 +463,13 @@ namespace Edward_JeuFinale
             if (e.KeyCode == Keys.A)
             {
                 goLeft = true;
+                background.Left += backgroundSpeed;
             }
 
             if (e.KeyCode == Keys.D)
             {
                 goRight = true;
+                background.Left -= backgroundSpeed;
             }
             if (e.KeyCode == Keys.Space && !jumping)
             {
