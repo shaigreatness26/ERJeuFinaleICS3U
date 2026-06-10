@@ -54,7 +54,11 @@ namespace Edward_JeuFinale
 
         private readonly SoundPlayer dribble = new SoundPlayer(Properties.Resources.dribble);
 
+        private readonly GroupBox retroactionBox = new GroupBox();
+        private readonly Label retroactionTirLabel = new Label();
+        private readonly Label retroactionTiming = new Label();
 
+        
         public Form1()
         {
             InitializeComponent();
@@ -62,7 +66,6 @@ namespace Edward_JeuFinale
             KeyPreview = true;
             InitializeShotMeter();
             dribbleTimer.Start();
-            
 
         }
 
@@ -82,6 +85,27 @@ namespace Edward_JeuFinale
 
             ball.BringToFront();
 
+        }
+
+        private void InitializeRetroactionTir()
+        {
+            retroactionBox.Size = new Size(180, 80);
+            retroactionBox.BackColor = Color.FromArgb(72, 72, 72);
+
+            retroactionTirLabel.Text = "Retroaction de Tir";
+            retroactionTirLabel.Font = new Font("Impact", 16);
+            retroactionTirLabel.ForeColor = Color.FromArgb(0, 0, 0);
+
+            // Make the timing feedback an object that includes color and text based on holdMs
+
+           // retroactionTiming.Text = timingTir;
+           // retroactionTiming.Font = new Font("Impact", 14);
+           // retroactionTiming.ForeColor = 
+
+           // retroactionBox.Controls.Add(retroactionTirLabel, retroactionTiming);
+            retroactionTirLabel.BringToFront();
+            retroactionTiming.BringToFront();
+            
         }
 
 
@@ -178,7 +202,7 @@ namespace Edward_JeuFinale
 
         }
        
-
+        // Joue le son de dribble lorsque le joueur a le balle en main
         private void DribblePlayback()
         {
 
@@ -375,6 +399,8 @@ namespace Edward_JeuFinale
             if (e.KeyCode == Keys.W && chargingShot && hasBall)
             {
                 ShootBall();
+                feedbackTimer.Stop();
+                feedbackTimer.Start();
             }
 
         }
@@ -399,6 +425,8 @@ namespace Edward_JeuFinale
             {
                 chargingShot = true;
                 shotStartTime = DateTime.UtcNow;
+                shotMeterBack.Visible = true;
+                shotMeterFill.Visible = true;
             }
             // Add a use key to shoot the ball and weapons
 
@@ -413,6 +441,8 @@ namespace Edward_JeuFinale
         private void feedbackTimer_Tick(object sender, EventArgs e)
         {
             groupBox1.Visible = false;
+            shotMeterBack.Visible = false;
+            shotMeterFill.Visible = false;
             feedbackTimer.Stop();
         }
 
