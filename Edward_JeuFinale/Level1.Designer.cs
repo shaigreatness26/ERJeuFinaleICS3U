@@ -1,6 +1,6 @@
 ﻿namespace Edward_JeuFinale
 {
-    partial class Form1
+    partial class Level1
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Level1));
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.ball = new System.Windows.Forms.PictureBox();
             this.Player = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.spawnPlatform = new System.Windows.Forms.PictureBox();
             this.hoop = new System.Windows.Forms.PictureBox();
             this.background = new System.Windows.Forms.PictureBox();
             this.rimBounds = new System.Windows.Forms.PictureBox();
@@ -42,7 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.feedbackTimer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.spawnPlatform = new System.Windows.Forms.PictureBox();
+            this.ballSpawnPlatform = new System.Windows.Forms.PictureBox();
             this.dribbleTimer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -57,13 +57,13 @@
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spawnPlatform)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rimBounds)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spawnPlatform)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ballSpawnPlatform)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -104,20 +104,20 @@
             this.Player.TabIndex = 3;
             this.Player.TabStop = false;
             // 
-            // pictureBox2
+            // spawnPlatform
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(43, 526);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(440, 11);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Tag = "platform";
+            this.spawnPlatform.Location = new System.Drawing.Point(43, 526);
+            this.spawnPlatform.Name = "spawnPlatform";
+            this.spawnPlatform.Size = new System.Drawing.Size(440, 11);
+            this.spawnPlatform.TabIndex = 2;
+            this.spawnPlatform.TabStop = false;
+            this.spawnPlatform.Tag = "platform";
             // 
             // hoop
             // 
             this.hoop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(92)))));
             this.hoop.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.basketballhoop1;
-            this.hoop.Location = new System.Drawing.Point(1075, 12);
+            this.hoop.Location = new System.Drawing.Point(433, 12);
             this.hoop.Name = "hoop";
             this.hoop.Size = new System.Drawing.Size(137, 154);
             this.hoop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -138,7 +138,7 @@
             // rimBounds
             // 
             this.rimBounds.BackColor = System.Drawing.Color.SandyBrown;
-            this.rimBounds.Location = new System.Drawing.Point(1102, 105);
+            this.rimBounds.Location = new System.Drawing.Point(460, 105);
             this.rimBounds.Name = "rimBounds";
             this.rimBounds.Size = new System.Drawing.Size(61, 20);
             this.rimBounds.TabIndex = 5;
@@ -197,14 +197,14 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Tag = "wall";
             // 
-            // spawnPlatform
+            // ballSpawnPlatform
             // 
-            this.spawnPlatform.Location = new System.Drawing.Point(43, 282);
-            this.spawnPlatform.Name = "spawnPlatform";
-            this.spawnPlatform.Size = new System.Drawing.Size(359, 10);
-            this.spawnPlatform.TabIndex = 10;
-            this.spawnPlatform.TabStop = false;
-            this.spawnPlatform.Tag = "platform";
+            this.ballSpawnPlatform.Location = new System.Drawing.Point(43, 282);
+            this.ballSpawnPlatform.Name = "ballSpawnPlatform";
+            this.ballSpawnPlatform.Size = new System.Drawing.Size(359, 10);
+            this.ballSpawnPlatform.TabIndex = 10;
+            this.ballSpawnPlatform.TabStop = false;
+            this.ballSpawnPlatform.Tag = "platform";
             // 
             // dribbleTimer
             // 
@@ -303,7 +303,7 @@
             // pictureBox13
             // 
             this.pictureBox13.BackColor = System.Drawing.Color.IndianRed;
-            this.pictureBox13.Location = new System.Drawing.Point(-9, -37);
+            this.pictureBox13.Location = new System.Drawing.Point(-9, -127);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(1515, 43);
             this.pictureBox13.TabIndex = 21;
@@ -322,11 +322,11 @@
             this.pictureBox14.Tag = "lava";
             this.pictureBox14.Visible = false;
             // 
-            // Form1
+            // Level1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1455, 713);
+            this.ClientSize = new System.Drawing.Size(1339, 713);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox14);
             this.Controls.Add(this.pictureBox13);
@@ -339,29 +339,29 @@
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.spawnPlatform);
+            this.Controls.Add(this.ballSpawnPlatform);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.rimBounds);
             this.Controls.Add(this.ball);
             this.Controls.Add(this.Player);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.spawnPlatform);
             this.Controls.Add(this.hoop);
             this.Controls.Add(this.background);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "Level1";
             this.Text = "Jeu Basket";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.ball)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spawnPlatform)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rimBounds)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spawnPlatform)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ballSpawnPlatform)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -382,7 +382,7 @@
 
         private System.Windows.Forms.PictureBox background;
         private System.Windows.Forms.PictureBox hoop;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox ballSpawnPlatform;
         private System.Windows.Forms.PictureBox Player;
         private System.Windows.Forms.PictureBox ball;
         private System.Windows.Forms.Timer gameTimer;

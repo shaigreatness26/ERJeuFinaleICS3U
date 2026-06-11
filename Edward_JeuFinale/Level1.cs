@@ -20,7 +20,7 @@ using System.Windows.Forms;
 namespace Edward_JeuFinale
 {
 
-    public partial class Form1 : Form
+    public partial class Level1 : Form
     {
 
         private readonly Random rng = new Random();
@@ -39,6 +39,8 @@ namespace Edward_JeuFinale
         private int force = 8;
         private int backgroundSpeed = 10;
         private int scoreFallVelocity;
+        private int netChange = 0;
+        private int score = 0;
 
         private int ballVelocityX;
         private int ballVelocityY;
@@ -58,8 +60,12 @@ namespace Edward_JeuFinale
         private readonly Label retroactionTirLabel = new Label();
         private readonly Label retroactionTiming = new Label();
 
-        
-        public Form1()
+        private Dictionary<Control, Point> originalPositions =
+         new Dictionary<Control, Point>();
+
+
+
+        public Level1()
         {
             InitializeComponent();
             DoubleBuffered = true;
@@ -67,6 +73,11 @@ namespace Edward_JeuFinale
             InitializeShotMeter();
             dribbleTimer.Start();
             InitializeRetroactionTir();
+
+            foreach (Control x in this.Controls)
+            {
+                originalPositions[x] = x.Location;
+            }
         }
 
 
@@ -147,7 +158,7 @@ namespace Edward_JeuFinale
             {
                 groupBox1.BringToFront();
                 groupBox1.Visible = true;
-                retroactionTir.Text = "PARFAIT";
+                retroactionTir.Text = "EXCELLENT";
                 retroactionTir.ForeColor = Color.Green;
                 feedbackTimer.Stop();
                 feedbackTimer.Start();
@@ -217,38 +228,68 @@ namespace Edward_JeuFinale
             {
                 dribble.Stop();
             }
+
+            
         }
 
 
         private void BougeElementsJeu(string direction)
         {
+            
+           
+
+
             foreach (Control x in this.Controls)
             {
-                if (x is PictureBox && (string)x.Tag == "platform" 
-                    || x is PictureBox && (string)x.Tag == "lava" 
-                    || x is PictureBox && (string)x.Tag == "wall" 
-                    || x is PictureBox && (string)x.Tag == "hoop" 
-                    || x is PictureBox && (string)x.Tag == "rimBounds" 
-                    || x is PictureBox && (string)x.Tag == "ball" && !hasBall
-                    || x is PictureBox && (string)x.Tag == "retroaction")
+                if (x is PictureBox &&
+                 (
+                     (string)x.Tag == "platform" ||
+                     (string)x.Tag == "lava" ||
+                     (string)x.Tag == "wall" ||
+                     (string)x.Tag == "hoop" ||
+                     (string)x.Tag == "rimBounds" ||
+                     ((string)x.Tag == "ball" && !hasBall) ||
+                     (string)x.Tag == "retroaction"
+                 ))
                 {
 
                     if (direction == "back")
                     {
                         x.Left -= backgroundSpeed;
+                        netChange+=backgroundSpeed;
                     }
                     if (direction == "forward")
                     {
                         x.Left += backgroundSpeed;
+                        netChange-=backgroundSpeed;
                     }
-
+                    
 
                 }
             }
         }
 
+        private void ResetLevel()
+        {
+            foreach (Control x in this.Controls)
+            {
+                if (originalPositions.ContainsKey(x))
+                {
+                    x.Location = originalPositions[x];
+                }
+            }
 
-        
+            Player.Location = originalPositions[Player];
+
+            
+            shotInFlight = false;
+            chargingShot = false;
+        }
+
+
+
+
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             Player.Top += jumpSpeed;
@@ -263,10 +304,6 @@ namespace Edward_JeuFinale
                 Player.Left += playerSpeed;
                 BougeElementsJeu("back");
             }
-
-            
-            
-
 
             if (jumping == true)
             {
@@ -287,8 +324,6 @@ namespace Edward_JeuFinale
             {
                 ball.Left = Player.Right - (ball.Width / 2) + 4;
                 ball.Top = Player.Top + 18;
-               
-
             }
 
             if (chargingShot)
@@ -308,7 +343,6 @@ namespace Edward_JeuFinale
                 shotMeterFill.BackColor = (holdMs >= GreenWindowStart && holdMs <= GreenWindowEnd) ? Color.LimeGreen : Color.Gold;
                 shotMeterBack.Left = Player.Left + (Player.Width / 2) - (shotMeterBack.Width / 2);
                 shotMeterBack.Top = Player.Top - 22;
-
             }
 
             if (shotInFlight)
@@ -330,8 +364,7 @@ namespace Edward_JeuFinale
                     ballVelocityY += 1;
                     ball.Left = hoop.Left + 55 - (ball.Width / 2);
                     ball.Top = hoop.Top + 102 - (ball.Height / 2);
-
-
+                    score++;
                 }
 
             }
@@ -339,6 +372,12 @@ namespace Edward_JeuFinale
             {
                 AttachBallToPlayer();
             }
+
+            if (score >= 1)
+            {
+
+            }
+
 
             foreach (Control x in this.Controls)
             {
@@ -410,6 +449,15 @@ namespace Edward_JeuFinale
                 if (x is PictureBox && (string)x.Tag == "lava")
                 {
 
+                    if (Player.Bounds.IntersectsWith(x.Bounds))
+                    {
+                        // reset player position to spawn point
+                        Player.Location = spawnPlatform.Location + new Size(-50, -80);
+                        ResetLevel();
+                       
+
+                    }
+
 
 
                     if (ball.Bounds.IntersectsWith(x.Bounds))
@@ -418,7 +466,7 @@ namespace Edward_JeuFinale
                         ballVelocityY = 0;
                         shotInFlight = false;
                         // replace this with something that says go to the next spawn point if there are multiple spawn points rather than hard coding 
-                        ball.Location = spawnPlatform.Location + new Size(36, -35);
+                        ball.Location = ballSpawnPlatform.Location + new Size(36, -35);
 
                     }
 
