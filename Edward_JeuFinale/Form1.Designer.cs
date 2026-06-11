@@ -51,7 +51,10 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -68,7 +71,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -145,11 +151,12 @@
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.groupBox1.Controls.Add(this.retroactionTir);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(470, 12);
+            this.groupBox1.Location = new System.Drawing.Point(136, 28);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(189, 86);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Tag = "retroaction";
             this.groupBox1.Visible = false;
             // 
             // retroactionTir
@@ -161,6 +168,7 @@
             this.retroactionTir.Name = "retroactionTir";
             this.retroactionTir.Size = new System.Drawing.Size(96, 23);
             this.retroactionTir.TabIndex = 1;
+            this.retroactionTir.Tag = "retroaction";
             this.retroactionTir.Text = "EXCELLENT";
             // 
             // label1
@@ -171,6 +179,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(166, 26);
             this.label1.TabIndex = 0;
+            this.label1.Tag = "retroaction";
             this.label1.Text = "Retroaction de tir:";
             // 
             // feedbackTimer
@@ -269,22 +278,60 @@
             this.pictureBox10.TabStop = false;
             this.pictureBox10.Tag = "lava";
             // 
-            // pictureBox11
+            // pictureBox4
             // 
-            this.pictureBox11.BackColor = System.Drawing.Color.IndianRed;
-            this.pictureBox11.Location = new System.Drawing.Point(320, 28);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(126, 148);
-            this.pictureBox11.TabIndex = 18;
-            this.pictureBox11.TabStop = false;
-            this.pictureBox11.Tag = "lava";
+            this.pictureBox4.BackColor = System.Drawing.Color.IndianRed;
+            this.pictureBox4.Location = new System.Drawing.Point(1453, -134);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(53, 1074);
+            this.pictureBox4.TabIndex = 19;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Tag = "lava";
+            this.pictureBox4.Visible = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.IndianRed;
+            this.pictureBox12.Location = new System.Drawing.Point(-30, -237);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(53, 1074);
+            this.pictureBox12.TabIndex = 20;
+            this.pictureBox12.TabStop = false;
+            this.pictureBox12.Tag = "lava";
+            this.pictureBox12.Visible = false;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.Color.IndianRed;
+            this.pictureBox13.Location = new System.Drawing.Point(-9, -37);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(1515, 43);
+            this.pictureBox13.TabIndex = 21;
+            this.pictureBox13.TabStop = false;
+            this.pictureBox13.Tag = "lava";
+            this.pictureBox13.Visible = false;
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.BackColor = System.Drawing.Color.IndianRed;
+            this.pictureBox14.Location = new System.Drawing.Point(-9, 691);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(1515, 43);
+            this.pictureBox14.TabIndex = 22;
+            this.pictureBox14.TabStop = false;
+            this.pictureBox14.Tag = "lava";
+            this.pictureBox14.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1493, 681);
-            this.Controls.Add(this.pictureBox11);
+            this.ClientSize = new System.Drawing.Size(1455, 713);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.pictureBox14);
+            this.Controls.Add(this.pictureBox13);
+            this.Controls.Add(this.pictureBox12);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
@@ -294,7 +341,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.spawnPlatform);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.rimBounds);
             this.Controls.Add(this.ball);
             this.Controls.Add(this.Player);
@@ -323,7 +369,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,7 +401,10 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.PictureBox pictureBox14;
     }
 }
 

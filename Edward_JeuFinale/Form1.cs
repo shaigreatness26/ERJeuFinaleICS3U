@@ -37,7 +37,7 @@ namespace Edward_JeuFinale
         private int jumpSpeed = 10;
         private int playerSpeed = 10;
         private int force = 8;
-        private int backgroundSpeed = 8;
+        private int backgroundSpeed = 10;
         private int scoreFallVelocity;
 
         private int ballVelocityX;
@@ -145,7 +145,7 @@ namespace Edward_JeuFinale
             SoundPlayer greenAudio = new SoundPlayer(Properties.Resources.green48kHz);
             if (perfectRelease)
             {
-                
+                groupBox1.BringToFront();
                 groupBox1.Visible = true;
                 retroactionTir.Text = "PARFAIT";
                 retroactionTir.ForeColor = Color.Green;
@@ -167,6 +167,7 @@ namespace Edward_JeuFinale
                 ballVelocityY = (int)Math.Round(idealVy) + rng.Next(-10, 15);
                 if (holdMs > GreenWindowEnd || holdMs > 900)
                 {
+                    groupBox1.BringToFront();
                     groupBox1.Visible = true;
                     retroactionTir.Text = "TARD";
                     retroactionTir.ForeColor = Color.Red;
@@ -176,6 +177,7 @@ namespace Edward_JeuFinale
                 else if (holdMs < GreenWindowStart)
                 {
                     {
+                        groupBox1.BringToFront();
                         groupBox1.Visible = true;
                         retroactionTir.Text = "TOT";
                         retroactionTir.ForeColor = Color.Red;
@@ -227,7 +229,8 @@ namespace Edward_JeuFinale
                     || x is PictureBox && (string)x.Tag == "wall" 
                     || x is PictureBox && (string)x.Tag == "hoop" 
                     || x is PictureBox && (string)x.Tag == "rimBounds" 
-                    || x is PictureBox && (string)x.Tag == "ball" && !hasBall)
+                    || x is PictureBox && (string)x.Tag == "ball" && !hasBall
+                    || x is PictureBox && (string)x.Tag == "retroaction")
                 {
 
                     if (direction == "back")
@@ -317,7 +320,7 @@ namespace Edward_JeuFinale
 
                 if (ball.Top > ClientSize.Height || ball.Left > ClientSize.Width || ball.Left + ball.Width < 0)
                 {
-                    AttachBallToPlayer();
+                   // AttachBallToPlayer();
                    // ball.Location = spawnPlatform.Location + new Size(36, -35);
                 }
 
