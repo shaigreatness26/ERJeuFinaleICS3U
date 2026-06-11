@@ -365,6 +365,7 @@ namespace Edward_JeuFinale
                     ball.Left = hoop.Left + 55 - (ball.Width / 2);
                     ball.Top = hoop.Top + 102 - (ball.Height / 2);
                     score++;
+
                 }
 
             }
