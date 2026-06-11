@@ -353,8 +353,8 @@ namespace Edward_JeuFinale
                 level2Wall.Visible = false;
                 level2Wall.Tag = "opened";
 
-                hoop.Location = pictureBox15.Location + new Size(200, 80);
-                rimBounds.Location = pictureBox15.Location + new Size(200, 580);
+                hoop.Location = pictureBox15.Location + new Size(200, -280);
+                rimBounds.Location = pictureBox15.Location + new Size(200, -280);
             }
 
 
