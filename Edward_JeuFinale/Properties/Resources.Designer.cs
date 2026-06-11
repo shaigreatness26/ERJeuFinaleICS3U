@@ -199,6 +199,47 @@ namespace Edward_JeuFinale.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lavatexture {
+            get {
+                object obj = ResourceManager.GetObject("lavatexture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lavatexture1 {
+            get {
+                object obj = ResourceManager.GetObject("lavatexture1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lavatexture2 {
+            get {
+                object obj = ResourceManager.GetObject("lavatexture2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pixelated_lava_texture_in_glowing_8_bit_style_seamless_red_orange_game_background_with_hot_magma_look_vector {
+            get {
+                object obj = ResourceManager.GetObject("pixelated-lava-texture-in-glowing-8-bit-style-seamless-red-orange-game-background" +
+                        "-with-hot-magma-look-vector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap small_basketball {
             get {
                 object obj = ResourceManager.GetObject("small_basketball", resourceCulture);

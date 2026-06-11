@@ -35,7 +35,7 @@ namespace Edward_JeuFinale
         private bool hasBall;
         
         private int jumpSpeed = 10;
-        private int playerSpeed = 10;
+        private int playerSpeed = 8;
         private int force = 8;
         private int backgroundSpeed = 10;
         private int scoreFallVelocity;
@@ -73,6 +73,8 @@ namespace Edward_JeuFinale
             InitializeShotMeter();
             dribbleTimer.Start();
             InitializeRetroactionTir();
+
+            level2Wall.Tag = "lava";
 
             foreach (Control x in this.Controls)
             {
@@ -280,7 +282,7 @@ namespace Edward_JeuFinale
             }
 
             Player.Location = originalPositions[Player];
-
+            ball.Location = originalPositions[ball];
             
             shotInFlight = false;
             chargingShot = false;
@@ -345,6 +347,18 @@ namespace Edward_JeuFinale
                 shotMeterBack.Top = Player.Top - 22;
             }
 
+            if (score >= 1)
+            {
+                level2Wall.Enabled = false;
+                level2Wall.Visible = false;
+                level2Wall.Tag = "opened";
+
+                hoop.Location = pictureBox15.Location + new Size(200, 80);
+                rimBounds.Location = pictureBox15.Location + new Size(200, 580);
+            }
+
+
+
             if (shotInFlight)
             {
                 ball.Left += ballVelocityX;
@@ -372,11 +386,6 @@ namespace Edward_JeuFinale
             else if (!hasBall && ball.Bounds.IntersectsWith(Player.Bounds))
             {
                 AttachBallToPlayer();
-            }
-
-            if (score >= 1)
-            {
-
             }
 
 
@@ -460,7 +469,6 @@ namespace Edward_JeuFinale
                     }
 
 
-
                     if (ball.Bounds.IntersectsWith(x.Bounds))
                     {
                         ballVelocityX = 0;
@@ -476,10 +484,6 @@ namespace Edward_JeuFinale
                 }
 
             }
-
-
-
-
         }
 
 
@@ -537,11 +541,6 @@ namespace Edward_JeuFinale
             }
             // Add a use key to shoot the ball and weapons
 
-
-        }
-
-        private void timer1_Tick_1(object sender, EventArgs e)
-        {
 
         }
 
