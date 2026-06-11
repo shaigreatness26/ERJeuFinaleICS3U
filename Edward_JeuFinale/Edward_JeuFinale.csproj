@@ -120,6 +120,7 @@
     <None Include="Resources\small_basketball.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\ChatGPT Image Jun 10, 2026, 09_48_06 PM.png" />
     <Content Include="Resources\green48kHz.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
