@@ -52,6 +52,12 @@
     <Compile Include="Level1.Designer.cs">
       <DependentUpon>Level1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Level2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Level2.Designer.cs">
+      <DependentUpon>Level2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Level1.resx">
       <DependentUpon>Level1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Level2.resx">
+      <DependentUpon>Level2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
@@ -121,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ChatGPT Image Jun 10, 2026, 09_48_06 PM.png" />
+    <None Include="Resources\bsmall_Jalenbrunsonsprite.png" />
     <Content Include="Resources\green48kHz.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

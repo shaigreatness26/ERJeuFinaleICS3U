@@ -283,11 +283,11 @@
             // 
             // Player
             // 
-            this.Player.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(92)))));
-            this.Player.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.ChatGPT_Image_Jun_10__2026__09_48_06_PM;
-            this.Player.Location = new System.Drawing.Point(147, 438);
+            this.Player.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(67)))), ((int)(((byte)(65)))));
+            this.Player.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.bsmall_Jalenbrunsonsprite;
+            this.Player.Location = new System.Drawing.Point(147, 450);
             this.Player.Name = "Player";
-            this.Player.Size = new System.Drawing.Size(55, 82);
+            this.Player.Size = new System.Drawing.Size(60, 74);
             this.Player.TabIndex = 3;
             this.Player.TabStop = false;
             // 
@@ -302,7 +302,7 @@
             // 
             // hoop
             // 
-            this.hoop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(92)))));
+            this.hoop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(156)))), ((int)(((byte)(238)))));
             this.hoop.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.basketballhoop1;
             this.hoop.Location = new System.Drawing.Point(433, 12);
             this.hoop.Name = "hoop";
@@ -314,8 +314,8 @@
             // 
             // background
             // 
-            this.background.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.small_cavebackgroundlevel1;
-            this.background.Location = new System.Drawing.Point(-350, -720);
+            this.background.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.ChatGPT_Image_Jun_1__2026__08_16_55_AM;
+            this.background.Location = new System.Drawing.Point(-381, -972);
             this.background.Name = "background";
             this.background.Size = new System.Drawing.Size(6400, 2500);
             this.background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -326,7 +326,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1511, 713);
+            this.ClientSize = new System.Drawing.Size(787, 713);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox14);
             this.Controls.Add(this.pictureBox13);

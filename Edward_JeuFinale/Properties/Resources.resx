@@ -142,6 +142,12 @@
   <data name="jbwallpaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\jbwallpaper.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dribble" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dribble.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bsmall_Jalenbrunsonsprite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bsmall_Jalenbrunsonsprite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="brickeffect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brickeffect.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -157,8 +163,8 @@
   <data name="basketballhoop1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\basketballhoop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dribble" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dribble.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ChatGPT Image Jun 10, 2026, 09_48_06 PM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ChatGPT Image Jun 10, 2026, 09_48_06 PM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Jalenbrunsonsprite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Jalenbrunsonsprite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,7 +172,7 @@
   <data name="ballhit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ballhit.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ChatGPT Image Jun 10, 2026, 09_48_06 PM" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ChatGPT Image Jun 10, 2026, 09_48_06 PM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ChatGPT Image Jun 1, 2026, 08_16_55 AM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ChatGPT Image Jun 1, 2026, 08_16_55 AM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

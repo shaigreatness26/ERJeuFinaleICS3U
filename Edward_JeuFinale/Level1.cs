@@ -72,7 +72,8 @@ namespace Edward_JeuFinale
             KeyPreview = true;
             InitializeShotMeter();
             dribbleTimer.Start();
-            InitializeRetroactionTir();
+           
+            
 
             foreach (Control x in this.Controls)
             {
@@ -98,27 +99,7 @@ namespace Edward_JeuFinale
 
         }
 
-        private void InitializeRetroactionTir()
-        {
-            retroactionBox.Size = new Size(180, 80);
-            retroactionBox.BackColor = Color.FromArgb(72, 72, 72);
-            retroactionBox.Location = new Point(ClientSize.Width / 2, ClientSize.Height -20);
-
-            retroactionTirLabel.Text = "Retroaction de Tir";
-            retroactionTirLabel.Font = new Font("Impact", 16);
-            retroactionTirLabel.ForeColor = Color.FromArgb(0, 0, 0);
-
-            // Make the timing feedback an object that includes color and text based on holdMs
-
-           // retroactionTiming.Text = timingTir;
-           // retroactionTiming.Font = new Font("Impact", 14);
-           // retroactionTiming.ForeColor = 
-
-           // retroactionBox.Controls.Add(retroactionTirLabel, retroactionTiming);
-            retroactionTirLabel.BringToFront();
-            retroactionTiming.BringToFront();
-            
-        }
+        
 
 
         private void ShootBall()
@@ -163,7 +144,7 @@ namespace Edward_JeuFinale
                 feedbackTimer.Stop();
                 feedbackTimer.Start();
 
-
+               
                 
                 greenAudio.Play();
 
@@ -365,7 +346,7 @@ namespace Edward_JeuFinale
                     ball.Left = hoop.Left + 55 - (ball.Width / 2);
                     ball.Top = hoop.Top + 102 - (ball.Height / 2);
                     score++;
-
+                    
                 }
 
             }
@@ -376,7 +357,25 @@ namespace Edward_JeuFinale
 
             if (score >= 1)
             {
+                gameTimer.Stop();
+                
+                DialogResult result = MessageBox.Show(
+                "Tutoriel terminé! Continuer au selecteur de niveaux?",
+                "Quitte Niveau",
+                 MessageBoxButtons.OKCancel
+                );
 
+                result = DialogResult.Yes;
+
+                if (result == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    Application.Exit();
+                    
+                }
             }
 
 
@@ -476,10 +475,6 @@ namespace Edward_JeuFinale
                 }
 
             }
-
-
-
-
         }
 
 
@@ -507,7 +502,6 @@ namespace Edward_JeuFinale
                 feedbackTimer.Stop();
                 feedbackTimer.Start();
             }
-
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -535,9 +529,6 @@ namespace Edward_JeuFinale
                 shotMeterBack.Visible = true;
                 shotMeterFill.Visible = true;
             }
-            // Add a use key to shoot the ball and weapons
-
-
         }
 
         private void timer1_Tick_1(object sender, EventArgs e)
