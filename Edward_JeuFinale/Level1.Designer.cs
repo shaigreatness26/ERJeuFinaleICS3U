@@ -132,6 +132,7 @@
             // pictureBox14
             // 
             this.pictureBox14.BackColor = System.Drawing.Color.IndianRed;
+            this.pictureBox14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox14.BackgroundImage")));
             this.pictureBox14.Location = new System.Drawing.Point(-9, 691);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(1515, 43);
@@ -154,6 +155,7 @@
             // pictureBox12
             // 
             this.pictureBox12.BackColor = System.Drawing.Color.IndianRed;
+            this.pictureBox12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.BackgroundImage")));
             this.pictureBox12.Location = new System.Drawing.Point(-30, -237);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(53, 1074);
@@ -176,6 +178,7 @@
             // pictureBox10
             // 
             this.pictureBox10.BackColor = System.Drawing.Color.IndianRed;
+            this.pictureBox10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox10.BackgroundImage")));
             this.pictureBox10.Location = new System.Drawing.Point(800, 146);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(126, 508);
@@ -315,7 +318,7 @@
             // background
             // 
             this.background.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.ChatGPT_Image_Jun_1__2026__08_16_55_AM;
-            this.background.Location = new System.Drawing.Point(-381, -972);
+            this.background.Location = new System.Drawing.Point(-199, -968);
             this.background.Name = "background";
             this.background.Size = new System.Drawing.Size(6400, 2500);
             this.background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -326,7 +329,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 713);
+            this.ClientSize = new System.Drawing.Size(1137, 713);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox14);
             this.Controls.Add(this.pictureBox13);

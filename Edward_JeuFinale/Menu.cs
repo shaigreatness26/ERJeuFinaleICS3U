@@ -23,6 +23,11 @@ namespace Edward_JeuFinale
                // this.Close();
                 new Level1().ShowDialog();
             };
+            button2.Click += (sender, e) => {
+                // this.Close();
+                new Level2().ShowDialog();
+            };
+
         }
 
         private void button1_Click(object sender, EventArgs e)

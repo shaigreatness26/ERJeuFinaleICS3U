@@ -1,27 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
-// Make all the buckets the level requires to kill all the enemies while dodging their attacks
-// Have enemies shooting at you or whatever and you need to make a bucket n amount of times depending on the level
-// After each bucket the ball spawns in a different place and you need to stay alive and get the ball
-
-
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 
 namespace Edward_JeuFinale
 {
-
-    public partial class Level1 : Form
+    public partial class Level2 : Form
     {
+
+
 
         private readonly Random rng = new Random();
         private bool goLeft;
@@ -30,7 +19,7 @@ namespace Edward_JeuFinale
         private bool chargingShot;
         private bool shotInFlight;
         private bool hasBall;
-        
+
         private int jumpSpeed = 10;
         private int playerSpeed = 10;
         private int force = 8;
@@ -58,45 +47,19 @@ namespace Edward_JeuFinale
 
         private Dictionary<Control, Point> originalPositions =
          new Dictionary<Control, Point>();
-
-
-
-        public Level1()
+        public Level2()
         {
             InitializeComponent();
             DoubleBuffered = true;
             KeyPreview = true;
+            gameTimer.Start();
             InitializeShotMeter();
             dribbleTimer.Start();
-           
-            
-
             foreach (Control x in this.Controls)
             {
                 originalPositions[x] = x.Location;
             }
         }
-
-
-
-        private void AttachBallToPlayer()
-        {
-            hasBall = true;
-            shotInFlight = false;
-            chargingShot = false;
-
-            ballVelocityX = 0;
-            ballVelocityY = 0;
-
-            ball.Left = Player.Right - (ball.Width / 2) + 4;
-            ball.Top = Player.Top + 18;
-
-            ball.BringToFront();
-
-        }
-
-        
-
 
         private void ShootBall()
         {
@@ -140,8 +103,8 @@ namespace Edward_JeuFinale
                 feedbackTimer.Stop();
                 feedbackTimer.Start();
 
-               
-                
+
+
                 greenAudio.Play();
 
                 // Tir au moment ideal
@@ -176,7 +139,6 @@ namespace Edward_JeuFinale
             }
         }
 
-        // GPT
         private void InitializeShotMeter()
         {
             shotMeterBack.Size = new Size(200, 14);
@@ -192,7 +154,7 @@ namespace Edward_JeuFinale
             shotMeterBack.BringToFront();
 
         }
-       
+
         // Joue le son de dribble lorsque le joueur a le balle en main
         private void DribblePlayback()
         {
@@ -206,16 +168,12 @@ namespace Edward_JeuFinale
                 dribble.Stop();
             }
 
-            
+
         }
 
 
         private void BougeElementsJeu(string direction)
         {
-            
-           
-
-
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox &&
@@ -233,14 +191,14 @@ namespace Edward_JeuFinale
                     if (direction == "back")
                     {
                         x.Left -= backgroundSpeed;
-                        
+
                     }
                     if (direction == "forward")
                     {
                         x.Left += backgroundSpeed;
-                      
+
                     }
-                    
+
 
                 }
             }
@@ -258,16 +216,29 @@ namespace Edward_JeuFinale
 
             Player.Location = originalPositions[Player];
 
-            
+
             shotInFlight = false;
             chargingShot = false;
         }
 
+        private void AttachBallToPlayer()
+        {
+            hasBall = true;
+            shotInFlight = false;
+            chargingShot = false;
+
+            ballVelocityX = 0;
+            ballVelocityY = 0;
+
+            ball.Left = Player.Right - (ball.Width / 2) + 4;
+            ball.Top = Player.Top + 18;
+
+            ball.BringToFront();
+        }
 
 
 
-
-        private void timer1_Tick(object sender, EventArgs e)
+        private void gameTimer_Tick(object sender, EventArgs e)
         {
             Player.Top += jumpSpeed;
             if (goLeft == true)
@@ -331,8 +302,8 @@ namespace Edward_JeuFinale
 
                 if (ball.Top > ClientSize.Height || ball.Left > ClientSize.Width || ball.Left + ball.Width < 0)
                 {
-                   // AttachBallToPlayer();
-                   // ball.Location = spawnPlatform.Location + new Size(36, -35);
+                    // AttachBallToPlayer();
+                    // ball.Location = spawnPlatform.Location + new Size(36, -35);
                 }
 
                 if (ball.Bounds.IntersectsWith(rimBounds.Bounds))
@@ -342,7 +313,7 @@ namespace Edward_JeuFinale
                     ball.Left = hoop.Left + 55 - (ball.Width / 2);
                     ball.Top = hoop.Top + 102 - (ball.Height / 2);
                     score++;
-                    
+
                 }
 
             }
@@ -350,30 +321,6 @@ namespace Edward_JeuFinale
             {
                 AttachBallToPlayer();
             }
-
-            if (score >= 3)
-            {
-                gameTimer.Stop();
-                
-                DialogResult result = MessageBox.Show(
-                "Tutoriel terminé! Continuer au selecteur de niveaux?",
-                "Quitte Niveau",
-                 MessageBoxButtons.OKCancel
-                );
-
-                result = DialogResult.Yes;
-
-                if (result == DialogResult.Yes)
-                {
-                    this.Close();
-                }
-                else
-                {
-                    Application.Exit();
-                    
-                }
-            }
-
 
             foreach (Control x in this.Controls)
             {
@@ -426,7 +373,7 @@ namespace Edward_JeuFinale
 
 
 
-                    if (ball.Bounds.IntersectsWith(x.Bounds) )
+                    if (ball.Bounds.IntersectsWith(x.Bounds))
                     {
                         shotInFlight = false;
                         ballVelocityX = 0;
@@ -450,7 +397,7 @@ namespace Edward_JeuFinale
                         // reset player position to spawn point
                         Player.Location = spawnPlatform.Location + new Size(-50, -80);
                         ResetLevel();
-                       
+
 
                     }
 
@@ -473,11 +420,7 @@ namespace Edward_JeuFinale
             }
         }
 
-
-        
-
-
-        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        private void Level2_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.A)
             {
@@ -500,7 +443,7 @@ namespace Edward_JeuFinale
             }
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void Level2_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.A)
             {
@@ -526,12 +469,6 @@ namespace Edward_JeuFinale
                 shotMeterFill.Visible = true;
             }
         }
-
-        private void timer1_Tick_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void feedbackTimer_Tick(object sender, EventArgs e)
         {
             groupBox1.Visible = false;
@@ -547,5 +484,8 @@ namespace Edward_JeuFinale
                 DribblePlayback();
             }
         }
+      
     }
+
+
 }
