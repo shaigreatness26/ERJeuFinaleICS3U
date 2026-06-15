@@ -48,5 +48,11 @@ namespace Edward_JeuFinale
 
            // this.Hide();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FreePlay freePlay = new FreePlay();
+            freePlay.Show();
+        }
     }
 }

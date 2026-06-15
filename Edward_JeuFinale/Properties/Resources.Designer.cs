@@ -159,6 +159,16 @@ namespace Edward_JeuFinale.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_Jun_15__2026__05_39_43_PM {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image Jun 15, 2026, 05_39_43 PM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream dribble {
