@@ -18,7 +18,14 @@ namespace Edward_JeuFinale
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Menu());
 
-            
+
+        }
+
+
+        public static class SaveData
+        {
+            public static int CurrentLevel = 1;
+
         }
     }
 }

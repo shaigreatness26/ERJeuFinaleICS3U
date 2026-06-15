@@ -7,22 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Edward_JeuFinale.Program;
 
 namespace Edward_JeuFinale
 {
     public partial class Menu : Form
     {
 
+        
+        
 
-       
         public Menu()
         {
             
             InitializeComponent();
-            button1.Click += (sender, e) => {
-               // this.Close();
-                new Level1().ShowDialog();
-            };
+          
             button2.Click += (sender, e) => {
                 // this.Close();
                 new Level2().ShowDialog();
@@ -30,9 +29,24 @@ namespace Edward_JeuFinale
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnPlay_Click(object sender, EventArgs e)
         {
-            
+            switch (SaveData.CurrentLevel)
+            {
+                case 1:
+                    new Level1().Show();
+                    break;
+
+                case 2:
+                    new Level2().Show();
+                    break;
+
+                //case 3:
+                   // new Level3().Show();
+                  //  break;
+            }
+
+           // this.Hide();
         }
     }
 }

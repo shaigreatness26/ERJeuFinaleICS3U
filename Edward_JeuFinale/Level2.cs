@@ -24,12 +24,12 @@ namespace Edward_JeuFinale
         private int playerSpeed = 10;
         private int force = 8;
         private int backgroundSpeed = 10;
-
         private int score = 0;
-
         private int ballVelocityX;
         private int ballVelocityY;
+        private int deathCount = 0;
         private const int Gravity = 1;
+
 
         private DateTime shotStartTime;
         private const int MaxShotWindow = 900;
@@ -59,6 +59,7 @@ namespace Edward_JeuFinale
             {
                 originalPositions[x] = x.Location;
             }
+            this.Size = new Size(1153, 752);
         }
 
         private void ShootBall()
@@ -184,7 +185,8 @@ namespace Edward_JeuFinale
                      (string)x.Tag == "hoop" ||
                      (string)x.Tag == "rimBounds" ||
                      ((string)x.Tag == "ball" && !hasBall) ||
-                     (string)x.Tag == "retroaction"
+                     (string)x.Tag == "retroaction" ||
+                     (string)x.Tag == "jumpable"
                  ))
                 {
 
@@ -215,8 +217,8 @@ namespace Edward_JeuFinale
             }
 
             Player.Location = originalPositions[Player];
-
-
+            ball.Location = originalPositions[ball];
+            hasBall = false;
             shotInFlight = false;
             chargingShot = false;
         }
@@ -314,6 +316,27 @@ namespace Edward_JeuFinale
                     ball.Top = hoop.Top + 102 - (ball.Height / 2);
                     score++;
 
+                    if (score == 1)
+                    {
+                        Size deplacement = new Size(400, 180);
+                        hoop.Location += deplacement;
+                        rimBounds.Location += deplacement;
+                        
+                        originalPositions[ball] = ball.Location;
+                        originalPositions[hoop] = hoop.Location;
+                        originalPositions[rimBounds] = rimBounds.Location;
+
+                        foreach (Control x in this.Controls)
+                        {
+                            if (x is PictureBox && x.BackColor == Color.Yellow)
+                            {
+                                x.Visible = true;
+                                x.Enabled = true;
+                                hasBall = false;
+                                ball.Location = new Point(1300, 420);
+                            }
+                        }
+                    }
                 }
 
             }
@@ -368,7 +391,7 @@ namespace Edward_JeuFinale
             foreach (Control x in this.Controls)
             {
 
-                if (x is PictureBox && (string)x.Tag == "platform" || (string)x.Tag == "wall")
+                if (x is PictureBox && (string)x.Tag == "platform" || (string)x.Tag == "wall" || (string)x.Tag == "jumpable")
                 {
 
 
@@ -389,6 +412,28 @@ namespace Edward_JeuFinale
             foreach (Control x in this.Controls)
             {
 
+                if (x is PictureBox && (string)x.Tag == "jumpable")
+                {
+
+
+
+                    if (Player.Bounds.IntersectsWith(x.Bounds))
+                    {
+                        jumping = false;
+                        jumpSpeed = -12;
+                        force -= 1;
+                    }
+
+                    x.BringToFront();
+
+                }
+
+            }
+
+
+            foreach (Control x in this.Controls)
+            {
+
                 if (x is PictureBox && (string)x.Tag == "lava")
                 {
 
@@ -397,7 +442,7 @@ namespace Edward_JeuFinale
                         // reset player position to spawn point
                         Player.Location = spawnPlatform.Location + new Size(-50, -80);
                         ResetLevel();
-
+                        label3.Text = (++deathCount).ToString();
 
                     }
 
@@ -484,7 +529,8 @@ namespace Edward_JeuFinale
                 DribblePlayback();
             }
         }
-      
+
+
     }
 
 
