@@ -9,6 +9,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Edward_JeuFinale.Program;
 
 namespace Edward_JeuFinale
 {
@@ -38,6 +39,7 @@ namespace Edward_JeuFinale
 
         private int canonVelocityX;
         private int canonVelocityY;
+        private PictureBox canonBall;
 
         private DateTime shotStartTime;
         private const int MaxShotWindow = 900;
@@ -63,6 +65,9 @@ namespace Edward_JeuFinale
             InitializeShotMeter();
             dribbleTimer.Start();
             canonTimer.Start();
+            canonBall = pictureBox4;
+            canonBall.Visible = false;
+            canonBall.BringToFront();
             foreach (Control x in this.Controls)
             {
                 originalPositions[x] = x.Location;
@@ -151,29 +156,33 @@ namespace Edward_JeuFinale
 
         private void CanonBall()
         {
-            canonLaunched = true;
+            if (canonLaunched)
+            {
+                return;
+            }
+
             float playerX = Player.Left + (Player.Width / 2f);
             float playerY = Player.Top + (Player.Height / 2f);
-            int flightFrames = 30;
-            foreach (Control x in this.Controls)
+            float canonX = canon1.Left + (canon1.Width / 2f);
+            float canonY = canon1.Top + (canon1.Height / 2f);
+
+            float dx = playerX - canonX;
+            float dy = playerY - canonY;
+            float distance = (float)Math.Sqrt((dx * dx) + (dy * dy));
+            if (distance <= 0.01f)
             {
-                if (x is PictureBox && (string)x.Tag == "Canon")
-                {
-                    float canonX = x.Left + (x.Width / 2f);
-                    float canonY = x.Top + (x.Height / 2f);
-                    float idealX = (canonX - playerX) / flightFrames;
-                    float idealY = (canonY - playerY) / flightFrames;
-                    canonVelocityX = (int)Math.Round(idealX);
-                    canonVelocityY = (int)Math.Round(idealY);
-                }
+                return;
             }
-            
 
-            
-            
+            const float canonSpeed = 12f;
+            canonVelocityX = (int)Math.Round((dx / distance) * canonSpeed);
+            canonVelocityY = (int)Math.Round((dy / distance) * canonSpeed);
 
-
-
+            canonBall.Left = canon1.Left - (canonBall.Width / 2);
+            canonBall.Top = canon1.Top + (canon1.Height / 2) - (canonBall.Height / 2);
+            canonBall.Visible = true;
+            canonBall.BringToFront();
+            canonLaunched = true;
         }
 
 
@@ -223,7 +232,8 @@ namespace Edward_JeuFinale
                      (string)x.Tag == "rimBounds" ||
                      ((string)x.Tag == "ball" && !hasBall) ||
                      (string)x.Tag == "retroaction" ||
-                     (string)x.Tag == "jumpable"
+                     (string)x.Tag == "jumpable" ||
+                     (string)x.Tag == "canon"
                  ))
                 {
 
@@ -255,9 +265,14 @@ namespace Edward_JeuFinale
 
             Player.Location = originalPositions[Player];
             ball.Location = originalPositions[ball];
+            canonBall.Location = originalPositions[canonBall];
+            canonBall.Visible = false;
             hasBall = false;
             shotInFlight = false;
             chargingShot = false;
+            canonLaunched = false;
+            canonVelocityX = 0;
+            canonVelocityY = 0;
         }
 
         private void AttachBallToPlayer()
@@ -315,15 +330,6 @@ namespace Edward_JeuFinale
                 ball.Left = Player.Right - (ball.Width / 2) + 4;
                 ball.Top = Player.Top + 18;
             }
-            if (canonLaunched)
-            {
-                PictureBox canonBall = new PictureBox();
-                canonBall.Width = 57;
-                canonBall.Height = 59;
-                canonBall.Image = Properties.Resources.bullet;
-                canonBall.Left += canonVelocityX;
-                canonBall.Top += canonVelocityY;
-            }
 
             if (chargingShot)
             {
@@ -342,6 +348,28 @@ namespace Edward_JeuFinale
                 shotMeterFill.BackColor = (holdMs >= GreenWindowStart && holdMs <= GreenWindowEnd) ? Color.LimeGreen : Color.Gold;
                 shotMeterBack.Left = Player.Left + (Player.Width / 2) - (shotMeterBack.Width / 2);
                 shotMeterBack.Top = Player.Top - 22;
+            }
+
+            if (canonLaunched)
+            {
+                canonBall.Left += canonVelocityX;
+                canonBall.Top += canonVelocityY;
+
+                if (canonBall.Bounds.IntersectsWith(Player.Bounds))
+                {
+                    canonLaunched = false;
+                    canonBall.Visible = false;
+                    canonBall.Location = originalPositions[canonBall];
+                    Player.Location = spawnPlatform.Location + new Size(-50, -80);
+                    ResetLevel();
+                    label3.Text = (++deathCount).ToString();
+                }
+                else if (canonBall.Right < 0 || canonBall.Left > ClientSize.Width || canonBall.Bottom < 0 || canonBall.Top > ClientSize.Height)
+                {
+                    canonLaunched = false;
+                    canonBall.Visible = false;
+                    canonBall.Location = originalPositions[canonBall];
+                }
             }
 
             if (shotInFlight)
@@ -367,25 +395,32 @@ namespace Edward_JeuFinale
 
                     if (score == 1)
                     {
-                        Size deplacement = new Size(400, 180);
-                        hoop.Location += deplacement;
-                        rimBounds.Location += deplacement;
+                        SaveData.CurrentLevel = 1;
 
-                        originalPositions[ball] = ball.Location;
-                        originalPositions[hoop] = hoop.Location;
-                        originalPositions[rimBounds] = rimBounds.Location;
+                        gameTimer.Stop();
 
-                        foreach (Control x in this.Controls)
+                        DialogResult result = MessageBox.Show(
+                        "Jeu terminé! Continuer au FreePlay?",
+                        "Quitte Niveau",
+                         MessageBoxButtons.OKCancel
+
+                        );
+
+                        result = DialogResult.Yes;
+
+                        if (result == DialogResult.Yes)
                         {
-                            if (x is PictureBox && x.BackColor == Color.Yellow)
-                            {
-                                x.Visible = true;
-                                x.Enabled = true;
-                                hasBall = false;
-                                ball.Location = new Point(1300, 420);
-                            }
+                            this.Close();
+                            new FreePlay().Show();
                         }
+                        else
+                        {
+                            this.Close();
+
+                        }
+
                     }
+
                 }
 
             }
@@ -443,7 +478,14 @@ namespace Edward_JeuFinale
                 if (x is PictureBox && (string)x.Tag == "platform" || (string)x.Tag == "wall" || (string)x.Tag == "jumpable")
                 {
 
+                    if (pictureBox4.Bounds.IntersectsWith(x.Bounds))
+                    {
+                        canonVelocityX = 0;
+                        canonVelocityY = 0;
+                        pictureBox4.Visible = false;
+                        pictureBox4.Enabled = false;
 
+                    }
 
                     if (ball.Bounds.IntersectsWith(x.Bounds))
                     {
@@ -491,7 +533,7 @@ namespace Edward_JeuFinale
                         // reset player position to spawn point
                         Player.Location = spawnPlatform.Location + new Size(-50, -80);
                         ResetLevel();
-                        label3.Text = (++deathCount).ToString();
+                        label3.Text = "Nombre de morts :" + (++deathCount).ToString();
 
                     }
 

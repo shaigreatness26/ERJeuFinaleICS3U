@@ -37,13 +37,13 @@
             this.feedbackTimer = new System.Windows.Forms.Timer(this.components);
             this.dribbleTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.durationTir = new System.Windows.Forms.Label();
             this.retroactionTir = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.spawnPlatform = new System.Windows.Forms.PictureBox();
             this.hoop = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.durationTir = new System.Windows.Forms.Label();
             this.scoreLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -107,6 +107,7 @@
             // 
             // dribbleTimer
             // 
+            this.dribbleTimer.Interval = 750;
             this.dribbleTimer.Tick += new System.EventHandler(this.dribbleTimer_Tick);
             // 
             // groupBox1
@@ -122,6 +123,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Tag = "retroaction";
             this.groupBox1.Visible = false;
+            // 
+            // durationTir
+            // 
+            this.durationTir.AutoSize = true;
+            this.durationTir.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.durationTir.ForeColor = System.Drawing.Color.Aqua;
+            this.durationTir.Location = new System.Drawing.Point(64, 65);
+            this.durationTir.Name = "durationTir";
+            this.durationTir.Size = new System.Drawing.Size(51, 23);
+            this.durationTir.TabIndex = 3;
+            this.durationTir.Tag = "retroaction";
+            this.durationTir.Text = "_ Ms";
             // 
             // retroactionTir
             // 
@@ -191,18 +204,6 @@
             this.pictureBox14.TabStop = false;
             this.pictureBox14.Tag = "lava";
             this.pictureBox14.Visible = false;
-            // 
-            // durationTir
-            // 
-            this.durationTir.AutoSize = true;
-            this.durationTir.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.durationTir.ForeColor = System.Drawing.Color.Aqua;
-            this.durationTir.Location = new System.Drawing.Point(64, 65);
-            this.durationTir.Name = "durationTir";
-            this.durationTir.Size = new System.Drawing.Size(51, 23);
-            this.durationTir.TabIndex = 3;
-            this.durationTir.Tag = "retroaction";
-            this.durationTir.Text = "_ Ms";
             // 
             // scoreLabel
             // 

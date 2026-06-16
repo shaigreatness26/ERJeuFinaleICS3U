@@ -58,9 +58,13 @@ namespace Edward_JeuFinale
             InitializeComponent();
             InitializeShotMeter();
             DribblePlayback();
+            dribbleTimer.Start();
+            feedbackTimer.Start();
             gameTimer.Start();
             DoubleBuffered = true;
             KeyPreview = true;
+            MessageBox.Show("Bienvenue au FreePlay!, Pour jouer, tapez sur W pour tirer la balle, et S pour prendre la balle");
+            
         }
 
         private void ShootBall()
@@ -129,7 +133,7 @@ namespace Edward_JeuFinale
             }
             else
             {
-                // Possible de faire un shot imparfait mais au hasard
+                // Possible de faire un shot imparfait mais tres au hasard
                 int rngDeviation = rng.Next(-30, 30);
                 ballVelocityX = (int)Math.Round(idealVx) + rngDeviation;
                 ballVelocityY = (int)Math.Round(idealVy) + rngDeviation;

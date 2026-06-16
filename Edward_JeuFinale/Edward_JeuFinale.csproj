@@ -154,6 +154,7 @@
     <None Include="Resources\cannonLeft.png" />
     <None Include="Resources\cannonLeft1.png" />
     <None Include="Resources\bullet.png" />
+    <None Include="Resources\bullet1.png" />
     <Content Include="Resources\green48kHz.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
