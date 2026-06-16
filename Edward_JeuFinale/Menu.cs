@@ -54,5 +54,11 @@ namespace Edward_JeuFinale
             FreePlay freePlay = new FreePlay();
             freePlay.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Level3 level3 = new Level3();
+            level3.Show();
+        }
     }
 }

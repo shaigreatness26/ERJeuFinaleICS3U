@@ -151,6 +151,9 @@
     <None Include="Resources\ChatGPT Image Jun 10, 2026, 09_48_06 PM.png" />
     <None Include="Resources\bsmall_Jalenbrunsonsprite.png" />
     <None Include="Resources\ChatGPT Image Jun 15, 2026, 05_39_43 PM.png" />
+    <None Include="Resources\cannonLeft.png" />
+    <None Include="Resources\cannonLeft1.png" />
+    <None Include="Resources\bullet.png" />
     <Content Include="Resources\green48kHz.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

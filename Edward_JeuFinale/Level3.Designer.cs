@@ -36,6 +36,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.retroactionTir = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.canon1 = new System.Windows.Forms.PictureBox();
+            this.spawnPlatform = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.ballSpawnPlatform = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -44,7 +46,12 @@
             this.Player = new System.Windows.Forms.PictureBox();
             this.hoop = new System.Windows.Forms.PictureBox();
             this.background = new System.Windows.Forms.PictureBox();
+            this.canonTimer = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.canon1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spawnPlatform)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ballSpawnPlatform)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -53,20 +60,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // dribbleTimer
             // 
             this.dribbleTimer.Interval = 750;
+            this.dribbleTimer.Tick += new System.EventHandler(this.dribbleTimer_Tick);
             // 
             // feedbackTimer
             // 
             this.feedbackTimer.Interval = 1600;
+            this.feedbackTimer.Tick += new System.EventHandler(this.feedbackTimer_Tick);
             // 
             // gameTimer
             // 
             this.gameTimer.Enabled = true;
             this.gameTimer.Interval = 20;
+            this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
             // 
             // groupBox1
             // 
@@ -103,6 +114,25 @@
             this.label1.TabIndex = 0;
             this.label1.Tag = "retroaction";
             this.label1.Text = "Retroaction de tir:";
+            // 
+            // canon1
+            // 
+            this.canon1.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.cannonLeft1;
+            this.canon1.Location = new System.Drawing.Point(820, 500);
+            this.canon1.Name = "canon1";
+            this.canon1.Size = new System.Drawing.Size(110, 57);
+            this.canon1.TabIndex = 28;
+            this.canon1.TabStop = false;
+            this.canon1.Tag = "Canon";
+            // 
+            // spawnPlatform
+            // 
+            this.spawnPlatform.Location = new System.Drawing.Point(127, 563);
+            this.spawnPlatform.Name = "spawnPlatform";
+            this.spawnPlatform.Size = new System.Drawing.Size(392, 10);
+            this.spawnPlatform.TabIndex = 27;
+            this.spawnPlatform.TabStop = false;
+            this.spawnPlatform.Tag = "platform";
             // 
             // pictureBox10
             // 
@@ -188,11 +218,39 @@
             this.background.TabIndex = 26;
             this.background.TabStop = false;
             // 
+            // canonTimer
+            // 
+            this.canonTimer.Interval = 3000;
+            this.canonTimer.Tick += new System.EventHandler(this.canonTimer_Tick);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = global::Edward_JeuFinale.Properties.Resources.bullet;
+            this.pictureBox4.Location = new System.Drawing.Point(820, 500);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(59, 57);
+            this.pictureBox4.TabIndex = 29;
+            this.pictureBox4.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Nirmala Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(1004, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(152, 21);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "Nombre de morts :";
+            // 
             // Level3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1357, 733);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.canon1);
+            this.Controls.Add(this.spawnPlatform);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.ballSpawnPlatform);
@@ -204,8 +262,12 @@
             this.Controls.Add(this.background);
             this.Name = "Level3";
             this.Text = "Level3";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Level2_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Level2_KeyUp);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.canon1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spawnPlatform)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ballSpawnPlatform)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -214,6 +276,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,5 +298,10 @@
         private System.Windows.Forms.PictureBox Player;
         private System.Windows.Forms.PictureBox hoop;
         private System.Windows.Forms.PictureBox background;
+        private System.Windows.Forms.PictureBox spawnPlatform;
+        private System.Windows.Forms.PictureBox canon1;
+        private System.Windows.Forms.Timer canonTimer;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label3;
     }
 }
