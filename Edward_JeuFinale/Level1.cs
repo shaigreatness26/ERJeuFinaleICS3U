@@ -28,7 +28,7 @@ namespace Edward_JeuFinale
         private bool hasBall;
 
         private int jumpSpeed = 10;
-        private int playerSpeed = 10;
+        private int playerSpeed = 8;
         private int force = 8;
         private int backgroundSpeed = 10;
 
